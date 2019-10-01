@@ -1,0 +1,24 @@
+<% breadcrumb :especialidades %>
+<div class="table-responsive">
+  <h1 class="text-center">Especialidades</h1>
+  <%= form_tag(especialidades_path, class:"form-inline" , method: :get) do %>
+    <div class="form-group">
+      <input type="text" name="q" class="form-control" placeholder="Buscar..." type="text" value="<%= params[:q] %>">
+      <span class="form-group">
+          <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+      </span>
+    </div>
+  <%end%><br>
+    <table class="table table-striped">
+      <tr>
+        <th class="active">Id</th>
+        <th class="active">Nombre</th>
+      </tr>
+      <% @especialidades.each do |especialidad| %>
+        <tr>
+          <td><%= link_to especialidad.id , especialidad%></td>
+          <td><%= link_to especialidad.nombre, especialidad %></td>
+        </tr>
+      <%end%>
+    </table>
+</div>
